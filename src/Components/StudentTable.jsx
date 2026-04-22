@@ -1,6 +1,6 @@
 import StudentRow from './StudentRow'
 
-function StudentTable({ students, updateScore }) {
+function StudentTable({ students, updateScore, removeStudent }) {
   return (
     <div className="table-wrapper">
       <table className="student-table">
@@ -11,6 +11,7 @@ function StudentTable({ students, updateScore }) {
             <th>Score</th>
             <th>Status</th>
             <th>Update Score</th>
+            <th>Remove</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@ function StudentTable({ students, updateScore }) {
               index={index + 1}
               student={student}
               updateScore={updateScore}
+              removeStudent={removeStudent}
             />
           ))}
         </tbody>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function StudentRow({ index, student, updateScore }) {
+function StudentRow({ index, student, updateScore, removeStudent }) {
   const [inputScore, setInputScore] = useState(student.score)
 
   const handleUpdate = () => {
@@ -30,6 +30,9 @@ function StudentRow({ index, student, updateScore }) {
           max="100"
         />
         <button onClick={handleUpdate} className="btn-update">Update</button>
+      </td>
+      <td>
+        <button onClick={() => removeStudent(student.id)} className="btn-remove">Remove</button>
       </td>
     </tr>
   )
