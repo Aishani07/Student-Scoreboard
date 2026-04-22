@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import StudentTable from './components/StudentTable'
 import AddStudentForm from './components/AddStudentForm'
+import StatsBar from './components/StatsBar'
 
 function App() {
   const [students, setStudents] = useState([
@@ -18,17 +19,14 @@ function App() {
   }
 
   const addStudent = (name, score) => {
-    const newStudent = {
-      id: Date.now(),
-      name,
-      score: Number(score)
-    }
+    const newStudent = { id: Date.now(), name, score: Number(score) }
     setStudents([...students, newStudent])
   }
 
   return (
     <div className="app-container">
       <Header />
+      <StatsBar students={students} />
       <StudentTable students={students} updateScore={updateScore} />
       <AddStudentForm addStudent={addStudent} />
     </div>
